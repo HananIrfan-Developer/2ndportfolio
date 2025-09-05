@@ -1,0 +1,726 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+/* Header and Navigation */
+header {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  background-color: rgb(4, 45, 68);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  transition: 0.5s ease;
+}
+
+.portfolio a:hover {
+  color: rgb(2, 175, 255);
+}
+
+.nava {
+  display: flex;
+  gap: 20px;
+}
+
+.nava a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nava a:hover {
+  color: rgb(0, 0, 0);
+  background: linear-gradient(rgb(12, 210, 236), rgb(0, 62, 87));
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgb(2, 175, 255);
+}
+
+/* Mobile Navigation */
+@media only screen and (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nava {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .nava a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* Hero Section */
+.imagesection {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+
+.myimage {
+  margin: 20px 0;
+}
+
+.myimage img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 5px solid rgb(0, 255, 234);
+  box-shadow: 0 10px 20px rgba(0, 255, 234, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.maintext {
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.maintext h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  -webkit-text-stroke: 1px rgb(36, 143, 143);
+}
+
+#one {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(28) 1s infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid rgb(3, 255, 255);
+  color: rgb(0, 183, 255);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social a:hover {
+  transform: scale(1.2);
+  background-color: aqua;
+  color: black;
+  box-shadow: 0 0 20px rgb(0, 62, 87);
+}
+
+#moreaboutme {
+  color: rgb(0, 0, 0);
+  background-color: rgb(12, 210, 236);
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#moreaboutme:hover {
+  border: 2px solid aqua;
+  box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+  background-color: rgb(0, 255, 234);
+  transform: translateY(-3px);
+}
+
+/* About Me Section */
+.Aboutmesection {
+  background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+  color: white;
+  width: 100%;
+  padding: 100px 20px;
+}
+
+.aboutme-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.Aboutmesection img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid aqua;
+  box-shadow: 0 8px 20px rgba(0, 183, 255, 0.5);
+}
+
+.aboutmetext {
+  text-align: center;
+  max-width: 600px;
+}
+
+.Aboutmesection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.Aboutmesection p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+#two {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(17) infinite alternate;
+}
+
+/* Services Section */
+.mytext {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+  color: white;
+}
+
+.mytext h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.myservices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.uiuxdesign,
+.frontendeveloper,
+.responsivedesign {
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  padding: 30px;
+  border-radius: 10px;
+  background: rgba(4, 45, 68, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 55, 126, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.uiuxdesign:hover,
+.frontendeveloper:hover,
+.responsivedesign:hover {
+  transform: translateY(-10px);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: aqua;
+  margin-bottom: 20px;
+}
+
+.uiuxdesign h3,
+.frontendeveloper h3,
+.responsivedesign h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.uiuxdesign p,
+.frontendeveloper p,
+.responsivedesign p {
+  margin-bottom: 20px;
+  color: white;
+  line-height: 1.6;
+}
+
+#uiuxdesignbutton,
+#frontendeveloperbutton,
+#responsivedesignbutton {
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(12, 210, 236);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#uiuxdesignbutton:hover,
+#frontendeveloperbutton:hover,
+#responsivedesignbutton:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+  background-color: rgb(0, 255, 234);
+}
+
+/* Skills Section */
+.skillsection {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+  color: white;
+}
+
+.skillsection h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.skills-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  margin-bottom: 30px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(0, 62, 87, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(0, 183, 255, 0.8), rgba(0, 255, 234, 0.8));
+  position: relative;
+  animation-fill-mode: both;
+}
+
+#html {
+  width: 90%;
+  animation: html 2s ease-in-out;
+}
+
+#css {
+  width: 60%;
+  animation: css 2s ease-in-out;
+}
+
+#cricket {
+  width: 70%;
+  animation: cricket 2s ease-in-out;
+}
+
+#politics {
+  width: 40%;
+  animation: politics 2s ease-in-out;
+}
+
+@keyframes html {
+  from { width: 0; }
+  to { width: 90%; }
+}
+
+@keyframes css {
+  from { width: 0; }
+  to { width: 60%; }
+}
+
+@keyframes cricket {
+  from { width: 0; }
+  to { width: 70%; }
+}
+
+@keyframes politics {
+  from { width: 0; }
+  to { width: 40%; }
+}
+
+/* Projects Section */
+#projectheading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: aqua;
+  padding: 60px 20px 20px;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+}
+
+.projectsection {
+  width: 100%;
+  padding: 40px 20px;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(4, 45, 68, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 255, 234, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+}
+
+.project img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 20px;
+  color: white;
+}
+
+.project h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30) infinite alternate;
+}
+
+.project p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+.contactmeform {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+}
+
+#formheading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 40px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+form button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background-color: rgb(0, 183, 255);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 20px auto 0;
+}
+
+form button:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+  transform: scale(1.05);
+}
+
+/* Direct Contact Section */
+.directcontact {
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+  color: white;
+}
+
+#directcontactone {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+#contactinfo {
+  margin-bottom: 40px;
+}
+
+#contactinfo a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+#socialmedia {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#socialmedia a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(4, 45, 68, 0.7);
+  transition: all 0.3s ease;
+}
+
+#socialmedia a:hover {
+  background-color: rgb(12, 210, 236);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 60px 20px 30px;
+  background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+  color: white;
+}
+
+.footercontent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.footerlinks, .pages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footerlinks a, .pages a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerlinks a:hover, .pages a:hover {
+  color: aqua;
+}
+
+.footerh2 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  animation: typing 3s steps(30) infinite alternate;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .maintext h1 {
+    font-size: 2rem;
+  }
+  
+  .Aboutmesection h2 {
+    font-size: 2rem;
+  }
+  
+  .mytext h2 {
+    font-size: 2rem;
+  }
+  
+  .skillsection h3 {
+    font-size: 2rem;
+  }
+  
+  #projectheading {
+    font-size: 2rem;
+  }
+  
+  #formheading {
+    font-size: 2rem;
+  }
+  
+  #directcontactone {
+    font-size: 2rem;
+  }
+  
+  .footercontent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  section {
+    padding: 40px 15px;
+  }
+  
+  .myimage img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .maintext h1 {
+    font-size: 1.8rem;
+  }
+  
+  .Aboutmesection img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .uiuxdesign,
+  .frontendeveloper,
+  .responsivedesign {
+    min-width: 100%;
+  }
+  
+  .social a {
+    width: 40px;
+    height: 40px;
+  }
+}

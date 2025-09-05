@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            height: 100%;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            background-color: rgb(4, 45, 68);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .portfolio a {
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            transition: 0.5s ease;
+            animation: sideleft 1s ease forwards;
+        }
+
+        .portfolio a:hover {
+            color: rgb(2, 175, 255);
+        }
+
+        .nava {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nava a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            animation: sidetop 1s ease forwards;
+        }
+
+        .nava a:hover {
+            color: rgb(0, 0, 0);
+            background: linear-gradient(rgb(12, 210, 236), rgb(0, 62, 87));
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgb(2, 175, 255);
+        }
+        @media only screen and (max-width: 768px) {
+            header {
+                height: auto;
+                padding: 10px 0;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nava {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                align-items: center;
+            }
+            
+            .nava a {
+                width: 80%;
+                text-align: center;
+            }
+        }
+        .imagesection {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+            padding: 80px 20px 40px;
+        }
+
+        .maintext {
+            flex: 1;
+            padding-right: 40px;
+            animation: sideleft 1s ease forwards;
+        }
+
+        .myimage {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            animation: sideright 1s ease forwards;
+        }
+
+        .myimage img {
+            border-radius: 50%;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border: 5px solid rgb(0, 255, 234);
+            box-shadow: 0 10px 20px rgba(0, 255, 234, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .maintext h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            -webkit-text-stroke: 1px rgb(36, 143, 143);
+        }
+
+        #one {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 20px 0;
+            animation: typing 3s steps(28) 1s infinite alternate;
+            font-size: 1.5rem;
+            color: aqua;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .social {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid rgb(3, 255, 255);
+            color: rgb(0, 183, 255);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: sidebottom 1s ease forwards;
+        }
+
+        .social a:hover {
+            transform: scale(1.2);
+            background-color: aqua;
+            color: black;
+            box-shadow: 0 0 20px rgb(0, 62, 87);
+        }
+
+        #moreaboutme {
+            color: rgb(0, 0, 0);
+            background-color: rgb(12, 210, 236);
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            animation: sideleft 1s ease forwards;
+        }
+
+        #moreaboutme:hover {
+            border: 2px solid aqua;
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+            background-color: rgb(0, 255, 234);
+            transform: translateY(-3px);
+        }
+        .Aboutmesection {
+            background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+            width: 100%;
+            padding: 100px 20px;
+        }
+
+        .aboutme-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .Aboutmesection img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid aqua;
+            box-shadow: 0 8px 20px rgba(0, 183, 255, 0.5);
+            animation: sideright 1s ease forwards;
+        }
+
+        .aboutmetext {
+            flex: 1;
+            padding-left: 40px;
+            animation: sideleft 1s ease forwards;
+        }
+
+        .Aboutmesection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: slideright 1s ease forwards;
+        }
+
+        .Aboutmesection p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            animation: slidetop 1s ease forwards;
+        }
+
+        .Aboutmesection h3 {
+            font-size: 1.8rem;
+            color: aqua;
+            margin-bottom: 15px;
+            animation: slideleft 1s ease forwards;
+        }
+
+        #two {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(17) infinite alternate;
+            color: rgb(12, 210, 236);
+        }
+        .mytext {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+        }
+
+        .mytext h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            animation: slidetop 1s ease forwards;
+        }
+
+        .myservices {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .uiuxdesign,
+        .frontendeveloper,
+        .responsivedesign {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(4, 45, 68, 0.7);
+            box-shadow: 0 8px 20px rgba(0, 55, 126, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+            animation: sidebottom 1s ease forwards;
+        }
+
+        .uiuxdesign:hover,
+        .frontendeveloper:hover,
+        .responsivedesign:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: aqua;
+            margin-bottom: 20px;
+        }
+
+        .uiuxdesign h3,
+        .frontendeveloper h3,
+        .responsivedesign h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .uiuxdesign p,
+        .frontendeveloper p,
+        .responsivedesign p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        #uiuxdesignbutton,
+        #frontendeveloperbutton,
+        #responsivedesignbutton {
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: none;
+            background-color: rgb(12, 210, 236);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #uiuxdesignbutton:hover,
+        #frontendeveloperbutton:hover,
+        #responsivedesignbutton:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+            background-color: rgb(0, 255, 234);
+        }
+        #projectheading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: aqua;
+            padding: 60px 20px 20px;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+            animation: slidetop 1s ease forwards;
+        }
+
+        .projectsection {
+            width: 100%;
+            padding: 40px 20px;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .project {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(4, 45, 68, 0.7);
+            box-shadow: 0 8px 20px rgba(0, 255, 234, 0.3);
+            transition: transform 0.3s ease;
+            animation: sidebottom 1s ease forwards;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30) infinite alternate;
+        }
+
+        .project p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .skillsection {
+            width: 100%;
+            padding: 100px 20px;
+            background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+        }
+
+        .skillsection h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            animation: slidetop 1s ease forwards;
+        }
+
+        .skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            margin-bottom: 30px;
+            animation: sideleft 1s ease forwards;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background-color: rgba(0, 62, 87, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(0, 183, 255, 0.8), rgba(0, 255, 234, 0.8));
+            position: relative;
+            animation-fill-mode: both;
+        }
+
+        #html {
+            width: 90%;
+            animation: html 2s ease-in-out;
+        }
+
+        #css {
+            width: 60%;
+            animation: css 2s ease-in-out;
+        }
+
+        #cricket {
+            width: 70%;
+            animation: cricket 2s ease-in-out;
+        }
+
+        #politics {
+            width: 40%;
+            animation: politics 2s ease-in-out;
+        }
+
+        @keyframes html {
+            from { width: 0; }
+            to { width: 90%; }
+        }
+
+        @keyframes css {
+            from { width: 0; }
+            to { width: 60%; }
+        }
+
+        @keyframes cricket {
+            from { width: 0; }
+            to { width: 70%; }
+        }
+
+        @keyframes politics {
+            from { width: 0; }
+            to { width: 40%; }
+        }
+
+        .contactmeform {
+            width: 100%;
+            padding: 100px 20px;
+            background: linear-gradient(rgb(14, 51, 66), rgb(0, 62, 87));
+        }
+
+        #formheading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            animation: slidetop 1s ease forwards;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            animation: sidebottom 1s ease forwards;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        form button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgb(0, 183, 255);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        form button:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+            transform: scale(1.05);
+        }
+
+        .directcontact {
+            width: 100%;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+        }
+
+        #directcontactone {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: slidetop 1s ease forwards;
+        }
+
+        #contactinfo {
+            margin-bottom: 40px;
+            animation: sideleft 1s ease forwards;
+        }
+
+        #contactinfo a {
+            display: block;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        #socialmedia {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: sideright 1s ease forwards;
+        }
+
+        #socialmedia a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(4, 45, 68, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        #socialmedia a:hover {
+            background-color: rgb(12, 210, 236);
+            color: black;
+            transform: scale(1.05);
+        }
+
+
+        footer {
+            width: 100%;
+            padding: 60px 20px 30px;
+            background: linear-gradient(rgb(0, 62, 87), rgb(14, 51, 66));
+        }
+
+        .footercontent {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 40px;
+        }
+
+        .footerlinks, .pages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footerlinks a, .pages a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footerlinks a:hover, .pages a:hover {
+            color: aqua;
+        }
+
+        .footerh2 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            animation: typing 3s steps(30) infinite alternate;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+
+        @keyframes sideleft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes sideright {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes sidetop {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes sidebottom {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideright {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideleft {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slidetop {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media only screen and (max-width: 968px) {
+            .imagesection {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .maintext {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .myimage {
+                justify-content: center;
+            }
+            
+            .aboutme-container {
+                flex-direction: column-reverse;
+            }
+            
+            .aboutmetext {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .maintext h1 {
+                font-size: 2rem;
+            }
+            
+            .Aboutmesection h2 {
+                font-size: 2rem;
+            }
+            
+            .mytext h2 {
+                font-size: 2rem;
+            }
+            
+            .skillsection h3 {
+                font-size: 2rem;
+            }
+            
+            #projectheading {
+                font-size: 2rem;
+            }
+            
+            #formheading {
+                font-size: 2rem;
+            }
+            
+            #directcontactone {
+                font-size: 2rem;
+            }
+            
+            .footercontent {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            section {
+                padding: 60px 15px;
+            }
+            
+            .myimage img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .Aboutmesection img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .uiuxdesign,
+            .frontendeveloper,
+            .responsivedesign {
+                min-width: 100%;
+            }
+            
+            .social a {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="portfolio">
+                <a href="#">Portfolio</a>
+            </div>
+            <div class="nava">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="imagesection" id="home">
+        <div class="maintext">
+            <h1>Hi, I'm Hanan Irfan</h1>
+            <p id="one">Frontend Developer & UI/UX Designer</p>
+            <p>I create beautiful, functional websites and applications with a focus on user experience and responsive design.</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <button id="moreaboutme">More About Me</button>
+        </div>
+        <div class="myimage">
+            <img src="WhatsApp Image 2025-06-04 at 23.11.21_01773be3.jpg" alt="Profile Image">
+        </div>
+    </section>
+
+    <section class="Aboutmesection" id="about">
+        <div class="aboutme-container">
+            <div class="aboutmetext">
+                <h2>About Me</h2>
+                <h3 id="two">Web Developer & Designer</h3>
+                <p>I am a passionate web developer with over 5 years of experience creating modern, responsive websites and web applications. My expertise includes HTML, CSS, JavaScript, and various frontend frameworks.</p>
+                <p>I believe in creating clean, efficient code and designing interfaces that provide exceptional user experiences across all devices.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or enjoying outdoor activities.</p>
+            </div>
+            <img src="WhatsApp Image 2025-06-04 at 23.11.21_01773be3.jpg" alt="About Me Image">
+        </div>
+    </section>
+
+    <section class="mytext" id="services">
+        <h2>My Services</h2>
+        <div class="myservices">
+            <div class="uiuxdesign">
+                <i class="fa-solid fa-pencil-alt service-icon"></i>
+                <h3>UI/UX Design</h3>
+                <p>Creating intuitive and engaging user interfaces with a focus on user experience and usability.</p>
+                <button id="uiuxdesignbutton">Learn More</button>
+            </div>
+            <div class="frontendeveloper">
+                <i class="fa-solid fa-code service-icon"></i>
+                <h3>Frontend Development</h3>
+                <p>Building responsive and interactive websites using modern technologies and best practices.</p>
+                <button id="frontendeveloperbutton">Learn More</button>
+            </div>
+            <div class="responsivedesign">
+                <i class="fa-solid fa-mobile-alt service-icon"></i>
+                <h3>Responsive Design</h3>
+                <p>Ensuring websites look and function perfectly on all devices from desktops to smartphones.</p>
+                <button id="responsivedesignbutton">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <h2 id="projectheading">My Projects</h2>
+    <section class="projectsection" id="projects">
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" alt="Project 1">
+            <div class="project-content">
+                <h3>E-commerce Website</h3>
+                <p>A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
+                <button id="uiuxdesignbutton">View Project</button>
+            </div>
+        </div>
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Project 2">
+            <div class="project-content">
+                <h3>Finance Dashboard</h3>
+                <p>An interactive dashboard for financial data visualization with real-time updates and reporting.</p>
+                <button id="frontendeveloperbutton">View Project</button>
+            </div>
+        </div>
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Project 3">
+            <div class="project-content">
+                <h3>Travel Booking App</h3>
+                <p>A mobile application for booking travel accommodations with integrated maps and reviews.</p>
+                <button id="responsivedesignbutton">View Project</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="skillsection">
+        <h3>My Skills</h3>
+        <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-info">
+                    <div class="skill-name">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" id="html"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info">
+                    <div class="skill-name">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+                    <span>60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" id="css"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info">
+                    <div class="skill-name">
+                        <i class="fa-solid fa-medal"></i>
+                        <span>Cricket</span>
+                    </div>
+                    <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" id="cricket"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info">
+                    <div class="skill-name">
+                        <i class="fa-solid fa-landmark"></i>
+                        <span>Politics</span>
+                    </div>
+                    <span>40%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" id="politics"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contactmeform" id="contact">
+        <h2 id="formheading">Contact Me</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section class="directcontact">
+        <h2 id="directcontactone">Get In Touch</h2>
+        <div id="contactinfo">
+            <a href="mailto:example@example.com">example@example.com</a>
+            <a href="tel:+1234567890">+1 (234) 567-890</a>
+            <p>123 Main Street, City, Country</p>
+        </div>
+        <div id="socialmedia">
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+            </a>
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="#" id="whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <div class="footercontent">
+            <div class="footerlinks">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="pages">
+                <h3>Other Pages</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footerh2">© 2023 Portfolio Website. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nava a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(item => item.style.backgroundColor = '');
+                    this.style.backgroundColor = 'rgba(12, 210, 236, 0.2)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
